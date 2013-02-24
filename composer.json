@@ -1,0 +1,21 @@
+{
+	"name": "flame/link-bundle",
+	"type": "nette-bundle",
+	"description": "Link bundle",
+	"keywords": ["link bundle", "nette"],
+	"homepage": "https://github.com/flame-cms/Link-Bundle",
+	"license": "BSD-3",
+	"authors": [
+		{
+			"name": "Jiří Šifalda",
+			"homepage": "http://jsifalda.name/"
+		}
+	],
+	"autoload": {
+		"classmap": [ "" ]
+	},
+	"require": {
+		"nette/nette": "@dev",
+		"flame/budle-installer": "@dev"
+	}
+}
