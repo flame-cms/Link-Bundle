@@ -16,6 +16,6 @@
 	},
 	"require": {
 		"nette/nette": "@dev",
-		"flame/budle-installer": "@dev"
+		"flame/framework": ">=3.0.1"
 	}
 }
