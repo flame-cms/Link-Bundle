@@ -11,9 +11,6 @@
 			"homepage": "http://jsifalda.name/"
 		}
 	],
-	"autoload": {
-		"classmap": [ "" ]
-	},
 	"require": {
 		"nette/nette": "@dev",
 		"flame/bundle-installer": "@dev",
