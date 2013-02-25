@@ -1,5 +1,5 @@
 {
-	"name": "flame/cms/link-bundle",
+	"name": "flame-cms/link-bundle",
 	"type": "nette-bundle",
 	"description": "Link bundle",
 	"keywords": ["link bundle", "nette"],
