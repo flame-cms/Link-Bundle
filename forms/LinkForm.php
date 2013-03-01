@@ -8,18 +8,18 @@
  * @date    15.10.12
  */
 
-namespace Flame\CMS\LinkBundle\Forms\Links;
+namespace Flame\CMS\LinkBundle\Forms;
 
 class LinkForm extends \Flame\Application\UI\Form
 {
 
-	/** @var \Flame\CMS\LinkBundle\Models\Links\LinkManager */
+	/** @var \Flame\CMS\LinkBundle\Models\LinkManager */
 	private $linkManager;
 
 	/**
-	 * @param \Flame\CMS\LinkBundle\Models\Links\LinkManager $linkManager
+	 * @param \Flame\CMS\LinkBundle\Models\LinkManager $linkManager
 	 */
-	public function injectLinkManager(\Flame\CMS\LinkBundle\Models\Links\LinkManager $linkManager)
+	public function injectLinkManager(\Flame\CMS\LinkBundle\Models\LinkManager $linkManager)
 	{
 		$this->linkManager = $linkManager;
 	}

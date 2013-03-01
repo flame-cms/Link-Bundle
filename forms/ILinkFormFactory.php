@@ -6,7 +6,7 @@
  * @date    01.03.13
  */
 
-namespace Flame\CMS\LinkBundle\Forms\Links;
+namespace Flame\CMS\LinkBundle\Forms;
 
 interface ILinkFormFactory
 {

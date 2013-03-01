@@ -8,7 +8,7 @@
  * @date    15.10.12
  */
 
-namespace Flame\CMS\LinkBundle\Models\Links;
+namespace Flame\CMS\LinkBundle\Models;
 
 /**
  * @Entity

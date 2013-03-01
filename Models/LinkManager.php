@@ -6,7 +6,7 @@
  * @date    01.03.13
  */
 
-namespace Flame\CMS\LinkBundle\Models\Links;
+namespace Flame\CMS\LinkBundle\Models;
 
 class LinkManager extends \Flame\Model\Manager
 {
@@ -50,7 +50,7 @@ class LinkManager extends \Flame\Model\Manager
 	 */
 	protected function create($values)
 	{
-		$link = new \Flame\CMS\LinkBundle\Models\Links\Link($values->name, $this->treatUrl($values->url));
+		$link = new \Flame\CMS\LinkBundle\Models\Link($values->name, $this->treatUrl($values->url));
 		$link->setDescription($values->description)
 			->setPublic($values->public);
 		$this->linkFacade->save($link);

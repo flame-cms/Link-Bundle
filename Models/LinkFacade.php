@@ -8,7 +8,7 @@
  * @date    15.10.12
  */
 
-namespace Flame\CMS\LinkBundle\Models\Links;
+namespace Flame\CMS\LinkBundle\Models;
 
 class LinkFacade extends \Flame\Doctrine\Model\Facade
 {
@@ -16,7 +16,7 @@ class LinkFacade extends \Flame\Doctrine\Model\Facade
 	/**
 	 * @var string
 	 */
-	protected $repositoryName = '\Flame\CMS\LinkBundle\Models\Links\Link';
+	protected $repositoryName = '\Flame\CMS\LinkBundle\Models\Link';
 
 	/**
 	 * @return array
