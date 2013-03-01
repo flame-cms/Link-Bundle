@@ -1,3 +1,6 @@
+parameters:
+  entities: [%appDir%/LinkBundle/Models]
+
 services:
   LinkFacade: Flame\CMS\LinkBundle\Models\Links\LinkFacade
   LinkFormFactory: Flame\CMS\LinkBundle\Forms\Links\LinkFormFactory
