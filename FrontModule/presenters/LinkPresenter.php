@@ -15,7 +15,7 @@ class LinkPresenter extends FrontPresenter
 
 	/**
 	 * @autowire
-	 * @var \Flame\CMS\LinkBundle\Models\LinkFacade
+	 * @var \Flame\CMS\LinkBundle\Model\LinkFacade
 	 */
 	protected $linkFacade;
 

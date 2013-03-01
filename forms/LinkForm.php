@@ -13,13 +13,13 @@ namespace Flame\CMS\LinkBundle\Forms;
 class LinkForm extends \Flame\Application\UI\Form
 {
 
-	/** @var \Flame\CMS\LinkBundle\Models\LinkManager */
+	/** @var \Flame\CMS\LinkBundle\Model\LinkManager */
 	private $linkManager;
 
 	/**
-	 * @param \Flame\CMS\LinkBundle\Models\LinkManager $linkManager
+	 * @param \Flame\CMS\LinkBundle\Model\LinkManager $linkManager
 	 */
-	public function injectLinkManager(\Flame\CMS\LinkBundle\Models\LinkManager $linkManager)
+	public function injectLinkManager(\Flame\CMS\LinkBundle\Model\LinkManager $linkManager)
 	{
 		$this->linkManager = $linkManager;
 	}

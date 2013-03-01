@@ -14,12 +14,12 @@ class LinkPresenter extends AdminPresenter
 {
 
 	/**
-	 * @var \Flame\CMS\LinkBundle\Models\Link
+	 * @var \Flame\CMS\LinkBundle\Model\Link
 	 */
 	private $link;
 
 	/**
-	 * @var \Flame\CMS\LinkBundle\Models\LinkFacade $linkFacade
+	 * @var \Flame\CMS\LinkBundle\Model\LinkFacade $linkFacade
 	 */
 	private $linkFacade;
 
@@ -35,9 +35,9 @@ class LinkPresenter extends AdminPresenter
 	}
 
 	/**
-	 * @param \Flame\CMS\LinkBundle\Models\LinkFacade $linkFacade
+	 * @param \Flame\CMS\LinkBundle\Model\LinkFacade $linkFacade
 	 */
-	public function injectLinkFacade(\Flame\CMS\LinkBundle\Models\LinkFacade $linkFacade)
+	public function injectLinkFacade(\Flame\CMS\LinkBundle\Model\LinkFacade $linkFacade)
 	{
 		$this->linkFacade = $linkFacade;
 	}
@@ -84,7 +84,7 @@ class LinkPresenter extends AdminPresenter
 	protected function createComponentLinkForm()
 	{
 		$default = array();
-		if($this->link instanceof \Flame\CMS\LinkBundle\Models\Link)
+		if($this->link instanceof \Flame\CMS\LinkBundle\Model\Link)
 			$default = $this->link->toArray();
 
 		$form = $this->linkFormFactory->create($default);

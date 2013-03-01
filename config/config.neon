@@ -2,8 +2,8 @@ parameters:
   entities: [%appDir%/LinkBundle/Models]
 
 services:
-  - \Flame\CMS\LinkBundle\Models\LinkFacade
-  - \Flame\CMS\LinkBundle\Models\LinkManager
+  - \Flame\CMS\LinkBundle\Model\LinkFacade
+  - \Flame\CMS\LinkBundle\Model\LinkManager
 
 factories:
   linkForm:
