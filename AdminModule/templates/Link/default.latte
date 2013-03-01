@@ -4,7 +4,7 @@
 		<h2 n:block="title">Links</h2>
 	</div>
 	<div class="right">
-		<a class="btn btn-large btn-primary" n:href="add"><i class="icon-plus-sign icon-white"></i> Add new link</a>
+		<a class="btn btn-large btn-primary" n:href="update"><i class="icon-plus-sign icon-white"></i> Add new link</a>
 	</div>
 
 	<br class="clear" /> <hr />
@@ -31,7 +31,7 @@
                 <td>{if $link->public}YES{else}NO{/if}</td>
                 <td>
                     <div class="btn-group">
-                        <a rel="tooltip" class="btn btn-small" n:href="edit $link->id"><i class="icon-edit"></i> Edit</a>
+                        <a rel="tooltip" class="btn btn-small" n:href="update $link->id"><i class="icon-edit"></i> Edit</a>
                         <a rel="tooltip" class="btn btn-small btn-danger ajax" n:href="delete! $link->id"><i class="icon-trash icon-white"></i> Delete</a>
                     </div>
                 </td>

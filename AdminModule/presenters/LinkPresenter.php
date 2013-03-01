@@ -50,13 +50,9 @@ class LinkPresenter extends AdminPresenter
 	/**
 	 * @param $id
 	 */
-	public function actionEdit($id)
+	public function actionUpdate($id = null)
 	{
-		if(!$this->link = $this->linkFacade->getOne($id)){
-			$this->flashMessage('Required link does not exist!');
-			$this->redirect('default');
-		}
-
+		$this->link = $this->linkFacade->getOne($id);
 		$this->template->link = $this->link;
 	}
 
