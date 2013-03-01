@@ -19,34 +19,22 @@ class LinkPresenter extends AdminPresenter
 	private $link;
 
 	/**
-	 * @var \Flame\CMS\LinkBundle\Model\LinkFacade $linkFacade
+	 * @autowire
+	 * @var \Flame\CMS\LinkBundle\Model\LinkFacade
 	 */
-	private $linkFacade;
+	protected $linkFacade;
 
-	/** @var \Flame\CMS\LinkBundle\Forms\ILinkFormFactory */
-	private $linkFormFactory;
+	/**
+	 * @autowire
+	 * @var \Flame\CMS\LinkBundle\Forms\ILinkFormFactory
+	 */
+	protected $linkFormFactory;
 
 	/**
 	 * @autowire
 	 * @var \Flame\CMS\LinkBundle\Model\LinkManager
 	 */
 	protected $linkManager;
-
-	/**
-	 * @param \Flame\CMS\LinkBundle\Forms\ILinkFormFactory $linkFormFactory
-	 */
-	public function injectLinkFormFactory(\Flame\CMS\LinkBundle\Forms\ILinkFormFactory $linkFormFactory)
-	{
-		$this->linkFormFactory = $linkFormFactory;
-	}
-
-	/**
-	 * @param \Flame\CMS\LinkBundle\Model\LinkFacade $linkFacade
-	 */
-	public function injectLinkFacade(\Flame\CMS\LinkBundle\Model\LinkFacade $linkFacade)
-	{
-		$this->linkFacade = $linkFacade;
-	}
 
 	public function renderDefault()
 	{
