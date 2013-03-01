@@ -16,7 +16,7 @@
             <tr>
                 <th>Title</th>
                 <th>Url</th>
-                <th>Descripton</th>
+                <th>Views</th>
                 <th>Show</th>
                 <th>Actions</th>
             </tr>
@@ -27,7 +27,7 @@
 
                 <td>{$link->name}</td>
                 <td><a href="{$link->url}" target="_blank">{$link->url}</a></td>
-                <td>{$link->description}</td>
+                <td>{$link->hit}</td>
                 <td>{if $link->public}YES{else}NO{/if}</td>
                 <td>
                     <div class="btn-group">
