@@ -14,6 +14,7 @@
 	"require": {
 		"nette/nette": "@dev",
 		"flame/bundle-installer": "@dev",
-		"flame/framework": ">=3.0.1"
+		"flame/framework": ">=3.0.1",
+		"kdyby/bootstrap-form-renderer": ">=2.0.1"
 	}
 }

@@ -10,7 +10,7 @@
 
 namespace Flame\CMS\LinkBundle\Forms\Links;
 
-class LinkForm extends \Flame\CMS\AppModule\Application\UI\Form
+class LinkForm extends \Flame\Application\UI\Form
 {
 
 	/** @var \Flame\CMS\LinkBundle\Models\Links\LinkManager */
@@ -30,6 +30,8 @@ class LinkForm extends \Flame\CMS\AppModule\Application\UI\Form
 	public function __construct(array $default = array())
 	{
 		parent::__construct();
+
+		$this->setRenderer(new \Kdyby\BootstrapFormRenderer\BootstrapRenderer);
 
 		$this->configure();
 
