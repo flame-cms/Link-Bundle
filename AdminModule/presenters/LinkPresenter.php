@@ -90,9 +90,9 @@ class LinkPresenter extends AdminPresenter
 		$form = $this->linkFormFactory->create($default);
 
 		if($this->link){
-			$form->onSuccess[] = $this->lazyLink('default');
-		}else{
 			$form->onSuccess[] = $this->lazyLink('this');
+		}else{
+			$form->onSuccess[] = $this->lazyLink('default');
 		}
 
 		return $form;
