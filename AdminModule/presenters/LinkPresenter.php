@@ -65,11 +65,7 @@ class LinkPresenter extends AdminPresenter
 			}
 		}
 
-		if($this->isAjax()){
-			$this->invalidateControl();
-		}else{
-			$this->redirect('default');
-		}
+		$this->redirect('this');
 	}
 
 	/**
