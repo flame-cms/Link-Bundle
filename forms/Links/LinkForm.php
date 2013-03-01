@@ -13,18 +13,51 @@ namespace Flame\CMS\LinkBundle\Forms\Links;
 class LinkForm extends \Flame\CMS\AppModule\Application\UI\Form
 {
 
-	public function configureAdd()
+	/** @var \Flame\CMS\LinkBundle\Models\Links\LinkManager */
+	private $linkManager;
+
+	/**
+	 * @param \Flame\CMS\LinkBundle\Models\Links\LinkManager $linkManager
+	 */
+	public function injectLinkManager(\Flame\CMS\LinkBundle\Models\Links\LinkManager $linkManager)
 	{
-		$this->configure();
-		$this->setDefaults(array('public' => true));
-		$this->addSubmit('send', 'Add');
+		$this->linkManager = $linkManager;
 	}
 
-	public function configureEdit(array $defaults)
+	/**
+	 * @param array $default
+	 */
+	public function __construct(array $default = array())
 	{
+		parent::__construct();
+
 		$this->configure();
-		$this->setDefaults($defaults);
-		$this->addSubmit('send', 'Edit');
+
+		if(count($default)){
+			$this->setDefaults($default);
+			$this->addSubmit('send', 'Edit')
+				->setAttribute('class', 'btn-primary');
+		}else{
+			$this->setDefaults(array('public' => true));
+			$this->addSubmit('send', 'Add')
+				->setAttribute('class', 'btn-primary');
+		}
+
+		$this->onSuccess[] = $this->formSubmitted;
+	}
+
+	/**
+	 * @param LinkForm $form
+	 */
+	public function formSubmitted(LinkForm $form)
+	{
+		try {
+			$this->linkManager->update($form->getValues());
+			$form->presenter->flashMessage('Link management was successful.', 'succes');
+		}catch (\Nette\InvalidArgumentException $ex){
+			$form->addError($ex->getMessage());
+		}
+
 	}
 
 	private function configure()
@@ -40,8 +73,7 @@ class LinkForm extends \Flame\CMS\AppModule\Application\UI\Form
 		$this->addTextArea('description', 'Description')
 			->addRule(self::MAX_LENGTH, null, 500);
 
-		$this->addCheckbox('public', 'Public?')
-			->setOption('description', 'Make this link visible?');
+		$this->addCheckbox('public', 'Public link?');
 	}
 
 }

@@ -19,14 +19,20 @@ class LinkPresenter extends AdminPresenter
 	private $link;
 
 	/**
-	 * @var \Flame\CMS\LinkBundle\Forms\Links\LinkFormFactory $linkFormFactory
-	 */
-	private $linkFormFactory;
-
-	/**
 	 * @var \Flame\CMS\LinkBundle\Models\Links\LinkFacade $linkFacade
 	 */
 	private $linkFacade;
+
+	/** @var \Flame\CMS\LinkBundle\Forms\Links\ILinkFormFactory */
+	private $linkFormFactory;
+
+	/**
+	 * @param \Flame\CMS\LinkBundle\Forms\Links\ILinkFormFactory $linkFormFactory
+	 */
+	public function injectLinkFormFactory(\Flame\CMS\LinkBundle\Forms\Links\ILinkFormFactory $linkFormFactory)
+	{
+		$this->linkFormFactory = $linkFormFactory;
+	}
 
 	/**
 	 * @param \Flame\CMS\LinkBundle\Models\Links\LinkFacade $linkFacade
@@ -34,14 +40,6 @@ class LinkPresenter extends AdminPresenter
 	public function injectLinkFacade(\Flame\CMS\LinkBundle\Models\Links\LinkFacade $linkFacade)
 	{
 		$this->linkFacade = $linkFacade;
-	}
-
-	/**
-	 * @param \Flame\CMS\LinkBundle\Forms\Links\LinkFormFactory $linkFormFactory
-	 */
-	public function injectLinkFormFactory(\Flame\CMS\LinkBundle\Forms\Links\LinkFormFactory $linkFormFactory)
-	{
-		$this->linkFormFactory = $linkFormFactory;
 	}
 
 	public function renderDefault()
@@ -85,11 +83,16 @@ class LinkPresenter extends AdminPresenter
 	}
 
 	/**
-	 * @return \Nette\Application\UI\Form
+	 * @return \Flame\CMS\LinkBundle\Forms\Links\LinkForm
 	 */
 	protected function createComponentLinkForm()
 	{
-		$form = $this->linkFormFactory->configure($this->link)->createForm();
+		$default = array();
+		if($this->link instanceof \Flame\CMS\LinkBundle\Models\Links\Link)
+			$default = $this->link->toArray();
+
+		$form = $this->linkFormFactory->create($default);
+
 		if($this->link){
 			$form->onSuccess[] = $this->lazyLink('default');
 		}else{

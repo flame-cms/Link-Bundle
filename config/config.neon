@@ -2,5 +2,11 @@ parameters:
   entities: [%appDir%/LinkBundle/Models]
 
 services:
-  LinkFacade: Flame\CMS\LinkBundle\Models\Links\LinkFacade
-  LinkFormFactory: Flame\CMS\LinkBundle\Forms\Links\LinkFormFactory
+  - \Flame\CMS\LinkBundle\Models\Links\LinkFacade
+  - \Flame\CMS\LinkBundle\Models\Links\LinkManager
+
+factories:
+  linkForm:
+    create: \Flame\CMS\LinkBundle\Forms\Links\LinkForm(%default%)
+    implement: \Flame\CMS\LinkBundle\Forms\Links\ILinkFormFactory
+    parameters: [array default = []]
