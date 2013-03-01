@@ -55,7 +55,7 @@ class LinkForm extends \Flame\Application\UI\Form
 	{
 		try {
 			$this->linkManager->update($form->getValues());
-			$form->presenter->flashMessage('Link management was successful.', 'succes');
+			$form->presenter->flashMessage('Link management was successful.', 'success');
 		}catch (\Nette\InvalidArgumentException $ex){
 			$form->addError($ex->getMessage());
 		}
