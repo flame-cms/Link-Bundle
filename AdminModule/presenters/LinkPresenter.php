@@ -27,6 +27,12 @@ class LinkPresenter extends AdminPresenter
 	private $linkFormFactory;
 
 	/**
+	 * @autowire
+	 * @var \Flame\CMS\LinkBundle\Model\LinkManager
+	 */
+	protected $linkManager;
+
+	/**
 	 * @param \Flame\CMS\LinkBundle\Forms\ILinkFormFactory $linkFormFactory
 	 */
 	public function injectLinkFormFactory(\Flame\CMS\LinkBundle\Forms\ILinkFormFactory $linkFormFactory)
@@ -64,10 +70,10 @@ class LinkPresenter extends AdminPresenter
 		if(!$this->getUser()->isAllowed('Admin:Link', 'delete')){
 			$this->flashMessage('Access denied!');
 		}else{
-			if(!$link = $this->linkFacade->getOne($id)){
-				$this->flashMessage('Link does not exist');
-			}else{
-				$this->linkFacade->delete($link);
+			try {
+				$this->linkManager->delete($id);
+			}catch (\Nette\InvalidArgumentException $ex){
+				$this->flashMessage($ex->getMessage());
 			}
 		}
 

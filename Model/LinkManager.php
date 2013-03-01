@@ -41,7 +41,21 @@ class LinkManager extends \Flame\Model\Manager
 		}else{
 			return $this->create($values);
 		}
+	}
 
+	/**
+	 * @param $id
+	 * @return bool
+	 * @throws \Nette\InvalidArgumentException
+	 */
+	public function delete($id)
+	{
+		if($link = $this->linkFacade->getOne($id)){
+			$this->linkFacade->delete($link);
+			return true;
+		}else{
+			throw new \Nette\InvalidArgumentException('Link with ID "' . $link . '" does not exist');
+		}
 	}
 
 	/**
