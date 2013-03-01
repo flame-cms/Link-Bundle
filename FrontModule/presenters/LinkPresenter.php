@@ -22,7 +22,7 @@ class LinkPresenter extends FrontPresenter
 	/**
 	 * @param $link
 	 */
-	public function actionRedirect($link)
+	public function actionRedirect($link = null)
 	{
 
 		if(!$link){
